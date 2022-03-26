@@ -33,7 +33,17 @@ jobs:
           go-version: 1.15
 
       - name: Get dependencies
-        run: go get -v -t -d ./...
+        run: 
+          export GOPATH=$HOME/go
+          export GOBIN=$(go env GOPATH)/bin
+          export PATH=$PATH:$GOPATH
+          export PATH=$PATH:$GOBIN
+          mkdir -p $GOPATH/pkg
+          mkdir -p $GOBIN
+          mkdir -p $GOPATH/src/github.com/$GITHUB_REPOSITORY
+          mv ./* $GOPATH/src/github.com/$GITHUB_REPOSITORY
+          cd $GOPATH/src/github.com/$GITHUB_REPOSITORY
+          go get -v -t -d ./...
 
       - name: Test code
         run: go test -v ./...
