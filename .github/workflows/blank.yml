@@ -47,5 +47,6 @@ jobs:
 
       - name: Test code
         run: |
-          cd $HOME/go/src/github.com/$GITHUB_REPOSITORY
+          export GOPATH=$HOME/go
+          cd $GOPATH/src/github.com/$GITHUB_REPOSITORY
           go test -v ./...
