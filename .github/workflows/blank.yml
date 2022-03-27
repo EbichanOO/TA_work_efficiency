@@ -44,6 +44,8 @@ jobs:
           mv ./* $GOPATH/src/github.com/$GITHUB_REPOSITORY
           cd $GOPATH/src/github.com/$GITHUB_REPOSITORY
           #go get -v -t -d ./...
+          ls
+          pwd
 
       - name: Test code
         run: |
