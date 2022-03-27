@@ -49,5 +49,5 @@ jobs:
       - name: Test code
         run: |
           export GOROOT=$HOME/go
-          cd $HOME/go/github.com/$GITHUB_REPOSITORY
+          cd $HOME/go/src/github.com/$GITHUB_REPOSITORY
           go test -v ./...
