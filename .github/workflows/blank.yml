@@ -43,8 +43,8 @@ jobs:
           mkdir -p $GOPATH/src/github.com/$GITHUB_REPOSITORY
           mv ./* $GOPATH/src/github.com/$GITHUB_REPOSITORY
           cd $GOPATH/src/github.com/$GITHUB_REPOSITORY
-          pwd
           #go get -v -t -d ./...
+          go test -v ./...
 
       - name: Test code
         run: |
