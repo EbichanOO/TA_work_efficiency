@@ -33,10 +33,8 @@ jobs:
           go-version: 1.15
 
       - name: Get dependencies
-        env:
-          GOPATH: $HOME/go
         run: |
-          #export GOPATH=$HOME/go
+          export GOPATH=$HOME/go
           export GOBIN=$(go env GOPATH)/bin
           export PATH=$PATH:$GOPATH
           export PATH=$PATH:$GOBIN
@@ -45,11 +43,10 @@ jobs:
           mkdir -p $GOPATH/src/github.com/$GITHUB_REPOSITORY
           mv ./* $GOPATH/src/github.com/$GITHUB_REPOSITORY
           cd $GOPATH/src/github.com/$GITHUB_REPOSITORY
-          #go get -v -t -d ./...
-          go test -v ./...
+          go get -v -t -d ./...
 
       - name: Test code
         run: |
-          export GOROOT=$HOME/go
-          cd $HOME/go/src/github.com/$GITHUB_REPOSITORY
+          export GOPATH=$HOME/go
+          cd $GOPATH/src/github.com/$GITHUB_REPOSITORY
           go test -v ./...
