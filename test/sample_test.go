@@ -1,6 +1,6 @@
 package main
 
-import "github.com/TA_work_efficiency/pkg/compute"
+import "github.com/EbichanOO/TA_work_efficiency/pkg/compute"
 
 import "testing"
 
