@@ -22,7 +22,7 @@ func TestAdd(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := compute.Add(tt.args.a, tt.args.b)+1; got != tt.want {
+			if got := compute.Add(tt.args.a, tt.args.b); got != tt.want {
 				t.Errorf("add() = %v, want %v", got, tt.want)
 			}
 		})
