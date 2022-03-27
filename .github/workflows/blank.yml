@@ -46,5 +46,8 @@ jobs:
           #go get -v -t -d ./...
 
       - name: Test code
-        run: pwd
+        run: |
+          cd $GOPATH/src/github.com/$GITHUB_REPOSITORY
+          ls
+          pwd
           #go test -v ./...
